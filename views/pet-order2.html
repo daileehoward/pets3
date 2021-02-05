@@ -25,6 +25,23 @@
                 </label>
             </div>
 
+            <!-- Pet Size Input -->
+            <div>
+                <label>Pet Size:</label>
+                <repeat group="{{ @size }}" value="{{ @size }}">
+                    <input type="radio" id="size" value="{{ @size }}">
+                    <label>{{ @size }}</label>
+                </repeat>
+            </div>
+
+            <div>
+                <label>Pet Accessories:</label>
+                <repeat group="{{ @accessory }}" value="{{ @accessory }}">
+                    <input type="checkbox" id="accessory" value="{{ @accessory }}">
+                    <label>{{ @accessory }}</label>
+                </repeat>
+            </div>
+
             <!-- Submit Button -->
             <div class="col-xs-3 ">
                 <input class="form-control btn btn-default" type="submit" value="Submit the Order">

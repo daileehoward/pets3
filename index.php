@@ -39,7 +39,7 @@
     });
 
     //Define an order2 route
-    $f3->route('POST /order2', function() {
+    $f3->route('GET|POST /order2', function($f3) {
         //var_dump($_POST);
 
         // Add data from form1 to Session array
@@ -49,6 +49,12 @@
         if (isset($_POST['color'])) {
             $_SESSION['color'] = $_POST['color'];
         }
+
+        $size = getSizes();
+        $f3->set('size', $size);
+
+        $accessories = getAccessories();
+        $f3->set('accessory', $accessories);
 
         // Display a view
         $view = new Template();
@@ -71,6 +77,7 @@
         $view = new Template();
         echo $view->render("views/summary.html");
     });
+
     $f3->route('GET|POST /order', function($f3) {
         //Check if the form has been posted
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -84,7 +91,8 @@
         $colors = getColors();
         $f3->set('color', $colors);
         $view = new Template();
-        echo $view->render('view/pet-order.html');
+        echo $view->render('views/pet-order.html');
     });
+
     //Run fat free
     $f3->run();
