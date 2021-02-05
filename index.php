@@ -16,6 +16,7 @@
 
     //Require the auto autoload file
     require_once('vendor/autoload.php');
+    require_once ('model/data-layer.php');
 
     //Create an instance of the Base class
     $f3 = Base::instance();
