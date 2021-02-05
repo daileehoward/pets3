@@ -1,0 +1,12 @@
+{
+  "name": "dhoward/SDEV328/pets3",
+  "authors": [
+    {
+      "name": "Tiffany Ferderer, Dailee Howard",
+      "email": "Dhoward18@mail.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}

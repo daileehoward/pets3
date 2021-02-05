@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        Authors: Blezyl-Anne Santos and Dailee Howard
+        Date: January 29th, 2021
+        File: pet-order.html
+    -->
+
+    <meta charset="UTF-8">
+    <title>Order!</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          rel="stylesheet" >
+</head>
+<body>
+    <div class="container">
+        <h1>Order a Pet</h1>
+
+        <form action="order2" method="post" class="p-3">
+
+            <!-- Get Food -->
+            <div class="form-group">
+                <label for="pet" class="control-label">What kind of pet would you like to order?</label>
+
+                <div>
+                    <input class="form-control" type="text" name="pet" id="pet" >
+                </div>
+            </div>
+
+            <!-- Get Meal -->
+            <div class="form-group">
+                <label for="color" class="control-label">
+                    Select a Color
+
+                    <select class="form-control" id="color" name="color">
+                        <option value="brown">Brown</option>
+                        <option value="purple">Purple</option>
+                        <option value="black">Black</option>
+                    </select>
+                </label>
+            </div>
+            <br>
+
+            <div class="col-sm-2">
+                <input class="form-control btn btn-default" type="submit" value="Next">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

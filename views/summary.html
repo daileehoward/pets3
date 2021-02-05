@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        Authors: Blezyl-Anne Santos and Dailee Howard
+        Date: January 29th, 2021
+        File: summary.html
+    -->
+
+    <meta charset="UTF-8">
+    <title>Order!</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Order Summary</h1>
+        <p>Thank you for ordering your {{ @SESSION.color }} {{ @SESSION.pet }}!<br>{{ @SESSION.name }} can't wait to
+            meet you!</p>
+
+        <a href="order">Place another order</a><br>
+        <a href="{{@BASE}}">Home page</a>
+    </div>
+</body>
+</html>
