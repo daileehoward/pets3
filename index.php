@@ -71,6 +71,20 @@
         $view = new Template();
         echo $view->render("views/summary.html");
     });
-
+    $f3->route('GET|POST /order', function($f3) {
+        //Check if the form has been posted
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Validate the data
+            if (empty($_POST['pet'])) {
+//                ...
+            } else {
+//                ...
+            }
+        }
+        $colors = getColors();
+        $f3->set('color', $colors);
+        $view = new Template();
+        echo $view->render('view/pet-order.html');
+    });
     //Run fat free
     $f3->run();

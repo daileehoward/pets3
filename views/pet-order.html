@@ -33,10 +33,12 @@
                     Select a Color
 
                     <select class="form-control" id="color" name="color">
-                        <option value="brown">Brown</option>
-                        <option value="purple">Purple</option>
-                        <option value="black">Black</option>
+                        <option>--Select a color--</option>
+                        <repeat group="{{@colors}}" value="{{@colorOption}}">
+                            <option>{{ @colorOption }}</option>
+                        </repeat>
                     </select>
+
                 </label>
             </div>
             <br>
