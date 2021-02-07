@@ -31,68 +31,63 @@
         echo $view->render('views/pet-home.html');
     });
 
-    //Define an order route
-    $f3->route('GET /order', function() {
-        // Display a view
-        $view = new Template();
-        echo $view->render("views/pet-order.html");
+
+    $f3->route('GET|POST /order', function($f3) {
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Validate the data
+            if (empty($_POST['typeOfPet'])) {
+                //...
+            } else {
+                //...
+            }
+        }
+
+        //if it doesnt work with conditional
+        $f3->set('colors', getColors());
+
+            $view = new Template();
+            echo $view->render('views/pet-order.html');
+
     });
 
-    //Define an order2 route
-    $f3->route('GET|POST /order2', function($f3) {
-        //var_dump($_POST);
+    $f3->route('GET|POST /order2', function($f3){
+        //echo "Order Page 2";
 
-        // Add data from form1 to Session array
-        if (isset($_POST['pet'])) {
-            $_SESSION['pet'] = $_POST['pet'];
+        //add data from order page to session array
+        if(isset($_POST['typePet'])){
+            $_SESSION['typePet'] = $_POST['typePet'];
         }
-        if (isset($_POST['color'])) {
+        if(isset($_POST['color'])){
             $_SESSION['color'] = $_POST['color'];
         }
 
-        $size = getSizes();
-        $f3->set('size', $size);
+        $f3 ->set('sizes', getSizes());
+        $f3 ->set('accessories', getAccessories());
 
-        $accessories = getAccessories();
-        $f3->set('accessory', $accessories);
-
-        // Display a view
+        //display a view
         $view = new Template();
-        echo $view->render("views/pet-order2.html");
+        echo $view->render('views/pet-order2.html');
     });
 
     //Define a summary route
     $f3->route('POST /summary', function() {
-        //var_dump($_POST);
-        //echo "<br>";
 
+        //echo "<br>";
+        if(isset($_POST['size'])){
+            $_SESSION['size'] = $_POST['size'];
+        }
+        if(isset($_POST['accessory'])){
+            $_SESSION['accessory'] = $_POST['accessory'];
+        }
         // Add data from form2 to Session array
-        if (!empty($_POST['name'])) {
+        if (isset($_POST['name'])) {
             $_SESSION['name'] = $_POST['name'];
         }
-
-        //var_dump($_SESSION);
+        
 
         // Display a view
         $view = new Template();
         echo $view->render("views/summary.html");
     });
-
-    $f3->route('GET|POST /order', function($f3) {
-        //Check if the form has been posted
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            //Validate the data
-            if (empty($_POST['pet'])) {
-//                ...
-            } else {
-//                ...
-            }
-        }
-        $colors = getColors();
-        $f3->set('color', $colors);
-        $view = new Template();
-        echo $view->render('views/pet-order.html');
-    });
-
     //Run fat free
     $f3->run();

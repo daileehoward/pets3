@@ -20,26 +20,33 @@
             <!-- Pet Name Input -->
             <div class="form-group">
                 <label for="name" class="control-label">
-                    Pet Name:
+                    What would you like to name your pet?
                     <input class="form-control" type="text" name="name" id="name">
                 </label>
             </div>
-
             <!-- Pet Size Input -->
-            <div>
-                <label>Pet Size:</label>
-                <repeat group="{{ @size }}" value="{{ @size }}">
-                    <input type="radio" id="size" value="{{ @size }}">
-                    <label>{{ @size }}</label>
+
+            <div class="form-group">
+                <label for="size" class="control-label">
+                    Pet Size:
+
+                <repeat group="{{ @sizes }}" value="{{ @sizeOption }}">
+                    <input type="checkbox" id="size" value="{{ @sizeOption }}">
+                    <label>{{ @sizeOption }}</label>
                 </repeat>
+                </input>
+                </label>
             </div>
 
-            <div>
-                <label>Pet Accessories:</label>
-                <repeat group="{{ @accessory }}" value="{{ @accessory }}">
-                    <input type="checkbox" id="accessory" value="{{ @accessory }}">
-                    <label>{{ @accessory }}</label>
+            <div class="form-group">
+                <label class="control-label">
+                    Pet Accessories: </label>
+
+                <repeat group="{{ @accessories }}" value="{{ @accessoryOption }}">
+                    <label><input type="checkbox" name="accessory" value="{{ @accessoryOption }}"> {{ @accessoryOption }} </label>
                 </repeat>
+
+
             </div>
 
             <!-- Submit Button -->
